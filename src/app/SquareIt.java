@@ -95,8 +95,6 @@ public class SquareIt {
     public boolean start() throws IOException {
         validateArgs();
 
-        System.out.println("All args valid");
-
         // Read original image from disk
         final BufferedImage bi = utils.readImage(mImageFile);
 
