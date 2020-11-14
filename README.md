@@ -1,5 +1,7 @@
 # SquareIt
 
+[SquareIt-GUI](https://github.com/AmmarYasserAllaiThy/SquareIt-GUI)
+
 Image squaring tool against a changeable pre-defined aspect-ratio `16 : 9` with extra options like *padding* and *background-color*.
 
 ```cmd
