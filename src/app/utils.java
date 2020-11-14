@@ -8,11 +8,11 @@ import java.io.IOException;
 
 public class utils {
 
-    static BufferedImage readImage(File imageFile) throws IOException {
+    public static BufferedImage readImage(File imageFile) throws IOException {
         return ImageIO.read(imageFile);
     }
 
-    static Color hex2rgb(String hex) throws IOException {
+    public static Color hex2rgb(String hex) throws IOException {
         if (hex.startsWith("#")) hex = hex.substring(1);
         if (hex.length() != 3 && hex.length() != 6) throw new IOException("Invalid hex value");
 
@@ -23,11 +23,11 @@ public class utils {
                 getValue(hex.substring(l * 2, l * 3)));
     }
 
-    static int getValue(String p) {
+    public static int getValue(String p) {
         return Integer.valueOf(p.length() == 1 ? p + p : p, 16);
     }
 
-    static boolean writeToDisk(SquareIt squareIt, BufferedImage sqBI) throws IOException {
+    public static boolean writeToDisk(SquareIt squareIt, BufferedImage sqBI) throws IOException {
         final String
                 path = squareIt.getImageFile().getAbsolutePath(),
                 sqPath = path.substring(0, path.lastIndexOf('.')) + "_sq_" + squareIt.getPadding(),
@@ -38,13 +38,17 @@ public class utils {
         return ImageIO.write(sqBI, sqType, sqFile);
     }
 
-    static File validateFileName(String path, String type) {
+    public static File validateFileName(String path, String type) {
         int i = 0;
         File file = new File(path + '.' + type);
 
         while (file.exists()) file = new File(path + (++i) + '.' + type);
 
         return file;
+    }
+
+    public static int toInt(String s) {
+        return Integer.parseInt(s);
     }
 
 }
